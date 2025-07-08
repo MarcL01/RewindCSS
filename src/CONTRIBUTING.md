@@ -6,7 +6,7 @@
 `values` Contains the isolated suffix non-arbitrary value types. For example blue-500. 
 `classes.ts` Contains an object of className:Properties key-value pairs.
 `types.ts` Contains all types.
-`rowind.story.tsx` A story to test your UI using hoarcekat.
+`rewind.story.tsx` A story to test your UI using hoarcekat.
 
 ## Class Creation Example
 To create the `w` (width) class:

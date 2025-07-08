@@ -1,13 +1,12 @@
-import Roact from "@rbxts/roact";
-import { withHooks, useContext } from "@rbxts/roact-hooked";
+import React, { useContext } from "@rbxts/react";
 import { ElementContext } from "../ElementContext";
 import getClassValue from "../utils/getClassValue";
 
-export default withHooks(() => {
-    const {classList} = useContext(ElementContext)
+export default function Rounded() {
+	const { classList } = useContext(ElementContext);
 
-    const roundedProps = {
-        CornerRadius: getClassValue(classList, "rounded") as UDim || new UDim(0, 0),
-    }
-    return <uicorner {...roundedProps}/>
-})
+	const roundedProps = {
+		CornerRadius: (getClassValue(classList, "rounded") as UDim) || new UDim(0, 0),
+	};
+	return <uicorner {...roundedProps} />;
+}

@@ -1,15 +1,13 @@
-import Roact from "@rbxts/roact";
-import RowindElement from "./RowindElement";
+import React from "@rbxts/react";
+import RewindElement from "./RewindElement";
 
-interface RowindProps extends Roact.PropsWithChildren<{}> {
-    className?: string,
-    Text?: string,
-    Event?: Roact.JsxInstanceEvents<TextLabel> | undefined,
-    ref?: Roact.Ref<TextLabel>
-}
+type TextProps = React.PropsWithChildren<{
+	className?: string;
+	Text?: string;
+	Event?: React.InstanceEvent<TextLabel> | undefined;
+	ref?: React.RefObject<TextLabel>;
+}>;
 
-export default ({className = "", Text = "", Event, ref}: RowindProps) => {
-    return (
-        <RowindElement ref={ref} Event={Event} tagName="text" Text={Text} className={className}/>
-    )
+export default function Text({ className = "", Text = "", Event, ref }: TextProps) {
+	return <RewindElement ref={ref} Event={Event} tagName="text" Text={Text} className={className} />;
 }

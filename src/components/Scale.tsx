@@ -1,16 +1,15 @@
-import Roact from "@rbxts/roact";
-import { useContext, withHooks } from "@rbxts/roact-hooked";
+import React, { useContext } from "@rbxts/react";
 import { ElementContext } from "../ElementContext";
 import getClassValue from "../utils/getClassValue";
 
-export default withHooks(() => {
-    const { classList } = useContext(ElementContext)
+export default function Scale() {
+	const { classList } = useContext(ElementContext);
 
-    if(!getClassValue(classList, "scale", "scale")) return <Roact.Fragment/>
+	if (!getClassValue(classList, "scale", "scale")) return <React.Fragment />;
 
-    const props = {
-        Scale: getClassValue(classList, "scale", "scale") as number || 1
-    }
-    
-    return <uiscale {...props}/>
-})
+	const props = {
+		Scale: (getClassValue(classList, "scale", "scale") as number) || 1,
+	};
+
+	return <uiscale {...props} />;
+}

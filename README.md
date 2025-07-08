@@ -1,14 +1,14 @@
-# RowindCSS
-TailwindCSS classes for Roact & Roblox-ts.
+# RewindCSS
+TailwindCSS classes for Roblox-react & Roblox-ts.
 
 ## Getting Started
 Install using:
 ```bash
-yarn add @rbxts/rowindcss
+yarn add @rbxts/rewindcss
 ```
 or
 ```bash
-npm i @rbxts/rowindcss
+npm i @rbxts/rewindcss
 ```
 
 Install Tailwind configs in your project root for autocomplete
@@ -31,9 +31,9 @@ module.exports = {
 }
 ```
 
-Import the available Rowind components and start using them in Roact with Tailwind classes.
+Import the available Rewind components and start using them in React with Tailwind classes.
 ```tsx
-    import { Div, Button, Text } from '@rbxts/rowindcss'
+    import { Div, Button, Text } from '@rbxts/rewindcss'
 
     export const Test = () => {
         return (
@@ -74,7 +74,7 @@ You can find a more comprehensive list of supported classes and examples in CLAS
 
 ## FAQ
 How to attach references?
-You can use the 'ref' property of any Rowind component.
+You can use the 'ref' property of any Rewind component.
 ```
 <Button ref={yourRef}/>
 ```

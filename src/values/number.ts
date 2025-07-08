@@ -1,4 +1,4 @@
 export default {
-    "aspect-video": 0.5625,
-    "aspect-square": 1,
-}
+	"aspect-video": 0.5625,
+	"aspect-square": 1,
+};

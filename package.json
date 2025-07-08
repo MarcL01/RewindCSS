@@ -1,9 +1,9 @@
 {
-  "name": "@rbxts/rowindcss",
+  "name": "@rbxts/rewindcss",
   "version": "1.3.1",
   "main": "out/init.lua",
-  "repository": "https://github.com/yayashn/RowindCSS.git",
-  "author": "Yahya <yks@dr.com>",
+  "repository": "https://github.com/MarcL01/RewindCSS.git",
+  "author": "Yahya <yks@dr.com>, Marc L",
   "license": "MIT",
   "scripts": {
     "build": "rbxtsc",
@@ -19,20 +19,21 @@
     "access": "public"
   },
   "devDependencies": {
-    "@rbxts/compiler-types": "^2.0.4-types.1",
-    "@rbxts/types": "^1.0.655",
-    "@typescript-eslint/eslint-plugin": "^5.48.0",
-    "@typescript-eslint/parser": "^5.48.0",
-    "eslint": "^8.31.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-roblox-ts": "^0.0.35",
-    "prettier": "^2.8.1",
-    "typescript": "^4.9.4"
+    "@rbxts/compiler-types": "^3.0.0-types.0",
+    "@rbxts/types": "^1.0.861",
+    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "@typescript-eslint/parser": "^8.36.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "eslint-plugin-roblox-ts": "^0.0.36",
+    "prettier": "^3.6.2",
+    "roblox-ts": "^3.0.0",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@rbxts/roact": "^1.4.4-ts.0",
-    "@rbxts/roact-hooked": "^2.3.2",
+    "@rbxts/react": "^17.2.3",
+    "@rbxts/react-roblox": "^17.2.3",
     "@rbxts/object-utils": "^1.0.4"
   }
 }

@@ -1,16 +1,23 @@
-import Roact from "@rbxts/roact";
-import RowindElement from "./RowindElement";
+import React from "@rbxts/react";
+import RewindElement from "./RewindElement";
 
-interface RowindProps extends Roact.PropsWithChildren<{}> {
-    className?: string,
-    Text?: string,
-    Event?: Roact.JsxInstanceEvents<TextBox> | undefined,
-    ref?: Roact.Ref<TextBox>,
-    placeholder?: string
-}
+type InputProps = React.PropsWithChildren<{
+	className?: string;
+	Text?: string;
+	Event?: React.InstanceEvent<TextBox> | undefined;
+	ref?: React.RefObject<TextBox>;
+	placeholder?: string;
+}>;
 
-export default ({className = "", Text = "", Event, ref, placeholder=""}: RowindProps) => {
-    return (
-        <RowindElement placeholder={placeholder} ref={ref} Event={Event} tagName="input" Text={Text} className={className}/>
-    )
+export default function Input({ className = "", Text = "", Event, ref, placeholder = "" }: InputProps) {
+	return (
+		<RewindElement
+			placeholder={placeholder}
+			ref={ref}
+			Event={Event}
+			tagName="input"
+			Text={Text}
+			className={className}
+		/>
+	);
 }

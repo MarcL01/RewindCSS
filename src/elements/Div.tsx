@@ -1,16 +1,16 @@
-import Roact from "@rbxts/roact";
-import RowindElement from "./RowindElement";
+import React from "@rbxts/react";
+import RewindElement from "./RewindElement";
 
-interface RowindProps extends Roact.PropsWithChildren<{}> {
-    className?: string
-    Event?: Roact.JsxInstanceEvents<Frame> | undefined,
-    ref?: Roact.Ref<Frame>
-}
+type DivProps = React.PropsWithChildren<{
+	className?: string;
+	Event?: React.InstanceEvent<Frame> | undefined;
+	ref?: React.RefObject<Frame>;
+}>;
 
-export default (props: RowindProps) => {
-    return (
-        <RowindElement ref={props.ref} Event={props.Event} tagName="div" className={props.className}>
-            {props[Roact.Children]}
-        </RowindElement>
-    )
+export default function Div(props: DivProps) {
+	return (
+		<RewindElement ref={props.ref} Event={props.Event} tagName="div" className={props.className}>
+			{props.children}
+		</RewindElement>
+	);
 }
