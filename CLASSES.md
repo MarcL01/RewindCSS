@@ -6,7 +6,7 @@ top
 left
 origin (this is anchor point)
 p, pt, pb, px, py, pl, pr
-flex, items-center, items-start, items-end, justify-center, justify-end, justify-start
+flex, items-center, items-start, items-end, content-between, content-around, content-evenly justify-center, justify-end, justify-start, justify-between, justify-around, justify-evenly
 gap
 leading
 border

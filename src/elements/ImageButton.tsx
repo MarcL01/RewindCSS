@@ -3,25 +3,23 @@ import RewindElement from "./RewindElement";
 import { ReactInstancePropsWithRef } from "../types";
 import { pick } from "../utils/pick";
 
-type ButtonProps = ReactInstancePropsWithRef<TextButton> & {
+type ImageButtonProps = ReactInstancePropsWithRef<ImageButton> & {
 	className?: string;
 	Event?: React.InstanceEvent<TextButton> | undefined;
-	Text?: string;
 	ref?: React.RefObject<TextButton>;
 };
 
-export default function Button(props: ButtonProps) {
-	const [{ className = "", Event, Text = "", ref, children }, restProps] = pick(props, [
+export default function ImageButton(props: ImageButtonProps) {
+	const [{ className = "", Event, ref, children }, restProps] = pick(props, [
 		"className",
 		"Event",
-		"Text",
 		"ref",
 		"children",
 	]);
 	return (
 		<RewindElement
-			elementPropsOverride={{ ref, Event, Text, ...restProps }}
-			tagName="button"
+			elementPropsOverride={{ ref, Event, ...restProps }}
+			tagName="imageButton"
 			className={className}
 			children={children}
 		/>

@@ -1,6 +1,10 @@
 import values from "./values/values";
 import classes from "./classes";
 
+export type ReactInstancePropsWithRef<T extends Instance> = Partial<
+	React.InstanceProps<T> & { ref?: React.RefObject<T> | undefined }
+>;
+
 export type ClassType = keyof typeof classes;
 export type SpecialClassName =
 	| "overflow-hidden"

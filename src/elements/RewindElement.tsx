@@ -1,39 +1,26 @@
 import React, { useEffect, useRef, useState } from "@rbxts/react";
-import { ClassName } from "../types";
+import { ClassName, ReactInstancePropsWithRef } from "../types";
 import { ElementContext } from "../ElementContext";
 import Flex from "../components/Flex";
 import Padding from "../components/Padding";
 import Border from "../components/Border";
 import Rounded from "../components/Rounded";
-import getElementProps from "../utils/getElementProps";
+import { getElementProps, RewindProps } from "../utils/getElementProps";
 import Overflow from "../components/Overflow";
 import BgImage from "../components/BgImage";
 import Aspect from "../components/Aspect";
 import Scale from "../components/Scale";
 import MinMaxSize from "../components/MinMaxSize";
 
-type RewindProps = React.PropsWithChildren<{
-	tagName: "div" | "button" | "text" | "input";
-	className?: string;
-	Text?: string;
-	Event?:
-		| React.InstanceEvent<Frame>
-		| React.InstanceEvent<TextButton>
-		| React.InstanceEvent<TextLabel>
-		| React.InstanceEvent<TextBox>
-		| undefined;
-	ref?: React.RefObject<Frame | TextButton | TextLabel | TextBox>;
-	placeholder?: string;
-}>;
-
 export default function RewindElement(props: RewindProps) {
 	const classList = (props.className ?? "").split(" ") as ClassName[];
-	const [hovered, setHovered] = useState<Frame | TextButton | TextLabel | TextBox | undefined>();
+	const [hovered, setHovered] = useState<Frame | TextButton | TextLabel | TextBox | ImageButton | undefined>();
 	const elementProps = getElementProps(
 		[...classList, (hovered ? "+hovered" : "-hovered") as unknown as ClassName],
 		props,
 	);
-	const elementRef = props.ref || useRef<Frame | TextButton | TextLabel | TextBox>();
+	const elementRef =
+		props.elementPropsOverride.ref || useRef<Frame | TextButton | TextLabel | TextBox | ImageButton>();
 
 	useEffect(() => {
 		if (!elementRef.current) return;
@@ -60,9 +47,9 @@ export default function RewindElement(props: RewindProps) {
 		>
 			{props.tagName === "div" && (
 				<frame
-					Event={(props.Event as React.InstanceEvent<Frame>) || {}}
 					ref={elementRef as React.Ref<Frame>}
 					{...elementProps}
+					{...(props.elementPropsOverride as ReactInstancePropsWithRef<Frame>)}
 				>
 					<Overflow>
 						<Padding />
@@ -78,9 +65,9 @@ export default function RewindElement(props: RewindProps) {
 			)}
 			{props.tagName === "button" && (
 				<textbutton
-					Event={(props.Event as React.InstanceEvent<TextButton>) || {}}
 					ref={elementRef as React.Ref<TextButton>}
 					{...elementProps}
+					{...(props.elementPropsOverride as ReactInstancePropsWithRef<TextButton>)}
 				>
 					<Overflow>
 						<Padding />
@@ -88,16 +75,17 @@ export default function RewindElement(props: RewindProps) {
 						{props.children}
 					</Overflow>
 					<Scale />
+					<Border />
 					<Aspect />
 					<Rounded />
 					<MinMaxSize />
 				</textbutton>
 			)}
-			{props.tagName === "text" && (
-				<textlabel
-					Event={(props.Event as React.InstanceEvent<TextLabel>) || {}}
-					ref={elementRef as React.Ref<TextLabel>}
+			{props.tagName === "imageButton" && (
+				<imagebutton
+					ref={elementRef as React.Ref<ImageButton>}
 					{...elementProps}
+					{...(props.elementPropsOverride as ReactInstancePropsWithRef<ImageButton>)}
 				>
 					<Overflow>
 						<Padding />
@@ -105,6 +93,25 @@ export default function RewindElement(props: RewindProps) {
 						{props.children}
 					</Overflow>
 					<Scale />
+					<Border />
+					<Aspect />
+					<Rounded />
+					<MinMaxSize />
+				</imagebutton>
+			)}
+			{props.tagName === "text" && (
+				<textlabel
+					ref={elementRef as React.Ref<TextLabel>}
+					{...elementProps}
+					{...(props.elementPropsOverride as ReactInstancePropsWithRef<TextLabel>)}
+				>
+					<Overflow>
+						<Padding />
+						<Flex />
+						{props.children}
+					</Overflow>
+					<Scale />
+					<Border />
 					<Aspect />
 					<Rounded />
 					<MinMaxSize />
@@ -112,10 +119,9 @@ export default function RewindElement(props: RewindProps) {
 			)}
 			{props.tagName === "input" && (
 				<textbox
-					PlaceholderText={props.placeholder}
-					Event={(props.Event as React.InstanceEvent<TextBox>) || {}}
 					ref={elementRef as React.Ref<TextBox>}
 					{...elementProps}
+					{...(props.elementPropsOverride as ReactInstancePropsWithRef<TextBox>)}
 				>
 					<Overflow>
 						<Padding />

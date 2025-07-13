@@ -74,6 +74,24 @@ export default {
 	"justify-start": {
 		valueTypes: ["special"],
 	},
+	"justify-between": {
+		valueTypes: ["special"],
+	},
+	"justify-around": {
+		valueTypes: ["special"],
+	},
+	"justify-evenly": {
+		valueTypes: ["special"],
+	},
+	"content-between": {
+		valueTypes: ["special"],
+	},
+	"content-around": {
+		valueTypes: ["special"],
+	},
+	"content-evenly": {
+		valueTypes: ["special"],
+	},
 	gap: {
 		valueTypes: ["udim"],
 	},

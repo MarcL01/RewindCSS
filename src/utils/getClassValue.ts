@@ -148,11 +148,11 @@ const parseValue = (
 	return false;
 };
 
-export default (
+export default function getClassValue(
 	classList: ClassList,
 	classType: ClassType,
 	valueType: ClassValueType = classes[classType].valueTypes[0] as ClassValueType,
-) => {
+) {
 	const hovered = classList.find((c) => c === ("+hovered" as ClassName));
 	const classListHovered = classList.filter((c) => c.match("^hover").size() > 0);
 	const specialClassValues = ((classes[classType] as { specialValues?: string[] }).specialValues ||
@@ -173,4 +173,4 @@ export default (
 		}
 	}
 	return false;
-};
+}

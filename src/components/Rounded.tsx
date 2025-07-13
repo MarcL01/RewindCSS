@@ -5,8 +5,12 @@ import getClassValue from "../utils/getClassValue";
 export default function Rounded() {
 	const { classList } = useContext(ElementContext);
 
+	const roundedVal = getClassValue(classList, "rounded") as UDim;
+
+	if (!roundedVal) return <React.Fragment />;
+
 	const roundedProps = {
-		CornerRadius: (getClassValue(classList, "rounded") as UDim) || new UDim(0, 0),
+		CornerRadius: roundedVal,
 	};
 	return <uicorner {...roundedProps} />;
 }
